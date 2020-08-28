@@ -6,17 +6,18 @@
  * @flow strict-local
  */
 
-import React, {Component} from 'react';
-
+import React from 'react';
 import params from './src/params';
 import { Text, StyleSheet, View } from 'react-native';
+import Field from './src/components/Field'
 
-const App: () => React$Node = () => {
+function App () {
   return (
     <View style={styles.container}>
       <Text>Hello mines</Text>
       <Text>Size of the grade:</Text>
-  <Text>{params.getRowsAmount()} x {params.getColumnsAmount()}</Text>
+        <Text>{params.getRowsAmount()} x {params.getColumnsAmount()}</Text>
+        <Field />
     </View>
   );
 };
