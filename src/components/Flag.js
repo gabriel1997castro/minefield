@@ -4,10 +4,10 @@ import { StyleSheet, Text, View } from 'react-native'
 export default function Flag(props) {
   return (
     <View style={styles.container}>
-      <View style={styles.flagPole} />
-      <View style={styles.flag} />
-      <View style={styles.base1} />
-      <View style={styles.base2} />
+      <View style={[styles.flagPole, props.bigger && styles.flagPoleBigger]} />
+      <View style={[styles.flag, props.bigger && styles.flagBigger]} />
+      <View style={[styles.base1, props.bigger && styles.base1]} />
+      <View style={[styles.base2, props.bigger && styles.base2]} />
     </View>
   )
 }
@@ -46,4 +46,26 @@ const styles = StyleSheet.create({
       marginLeft: 5,
       marginTop: 12,
     },
+    flagPoleBigger: {
+      height: 28,
+      width: 4,
+      marginLeft: 16,
+    },
+    flagBigger: {
+      height: 10,
+      width: 14,
+      marginLeft: 3,
+    },
+    base1Bigger: {
+      height: 4,
+      width: 12,
+      marginTop: 20,
+      marginLeft: 12,
+    },
+    base2Bigger: {
+      height: 4,
+      width: 20,
+      marginTop: 8,
+      marginLeft: 24,
+    }
 })
