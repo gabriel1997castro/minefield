@@ -8,7 +8,7 @@
 
 import React, { Component } from 'react';
 import params from './src/params';
-import { Text, StyleSheet, View, Alert } from 'react-native';
+import { StyleSheet, View, Alert } from 'react-native';
 import MineField from './src/components/MineField'
 import {
   createMinedBoard,
@@ -17,8 +17,10 @@ import {
   hasExplodedField,
   wonGame,
   showMines,
-  invertFlag
+  invertFlag,
+  flagsUsed,
 } from './src/gameController';
+import Header from './src/components/Header';
 
 export default class App extends Component {
   constructor(props) {
@@ -48,12 +50,12 @@ export default class App extends Component {
     const lose = hasExplodedField(board);
     const won = wonGame(board);
 
-    if(lose) {
+    if (lose) {
       showMines(board)
       Alert.alert('Perdeeeeeu!', 'Que buuuuurroo! Zero pra vc!');
     }
 
-    if(won) {
+    if (won) {
       Alert.alert('Parabéns', 'Você venceu');
     }
 
@@ -65,7 +67,7 @@ export default class App extends Component {
     invertFlag(board, row, column);
     const won = wonGame(board);
 
-    if(won) {
+    if (won) {
       Alert.alert('Parabéns', 'Você venceu');
     }
 
@@ -75,12 +77,10 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello mines</Text>
-        <Text>Size of the grade:</Text>
-          <Text>{params.getRowsAmount()} x {params.getColumnsAmount()}</Text>
-          <View style={this.state.board}>
-            <MineField board={this.state.board} onOpenField={this.openField} onFlagField={this.onFlagField} />
-          </View>
+        <Header flagsLeft={this.minesAmount() - flagsUsed(this.state.board)} onNewGame={() => this.setState(this.createState())} />
+        <View style={styles.board}>
+          <MineField board={this.state.board} onOpenField={this.openField} onFlagField={this.onFlagField} />
+        </View>
       </View>
     );
   }
@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-end',
-    alignItems: 'center',
   },
   board: {
     alignItems: 'center',
