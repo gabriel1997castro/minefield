@@ -6,15 +6,16 @@ export default function Flag(props) {
     <View style={styles.container}>
       <View style={[styles.flagPole, props.bigger && styles.flagPoleBigger]} />
       <View style={[styles.flag, props.bigger && styles.flagBigger]} />
-      <View style={[styles.base1, props.bigger && styles.base1]} />
-      <View style={[styles.base2, props.bigger && styles.base2]} />
+      <View style={[styles.base1, props.bigger && styles.base1Bigger]} />
+      <View style={[styles.base2, props.bigger && styles.base2Bigger]} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
     container: {
-      marginTop: 2,
+      marginTop: 5,
+      marginLeft: 3,
     },
     flagPole: {
       position: 'absolute',
