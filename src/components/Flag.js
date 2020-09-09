@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
       height: 3,
       width: 13,
       backgroundColor: '#222',
-      marginLeft: 5,
+      marginLeft: 4,
       marginTop: 16,
     },
     flagPoleBigger: {
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     base2Bigger: {
       height: 4,
       width: 20,
-      marginTop: 8,
-      marginLeft: 24,
+      marginTop: 24,
+      marginLeft: 8,
     }
 })
