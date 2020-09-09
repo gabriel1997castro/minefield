@@ -7,3 +7,4 @@ This is an initial version of the game minesweeper in React Native.
 * Don't allow onPress inside field after finish game;
 * Initial screen
 * Make buttons of level selection a component and prettier;
+* App Icon
